@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Profile {% endblock title %}
+
+{% block header %} Добро пожаловать, {{ user_name }} {% endblock header %}
+{% block login_form %}{% endblock login_form %}
+{% block content %}
+  <ul>
+    <li>Статьи</li>
+    <li>Полезные ссылки</li>
+    <li>Интерактивные задачи</li>
+    <li>Проверка знаний</li>
+  </ul>
+{% endblock content %}
+

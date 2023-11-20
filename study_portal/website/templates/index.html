@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-</head>
-
-<body>
-    <div class="log_box">
-        {{ logging }}
-    </div>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">{% endblock style %}
+{% block title %} Starting {% endblock title %}
+{% block header %} Образовательный портал {% endblock header %}
+{% block content %}{% endblock content %}

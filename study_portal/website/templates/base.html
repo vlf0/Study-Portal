@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>{% block title %} Default {% endblock title %}</title>
+    {% block style %}<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">{% endblock style %}
+</head>
+
+<body>
+    <h1 class="header">{% block header %}{% endblock header %}</h1>
+    <div class="log_box">{% block login_form %}
+        <span style="margin-bottom: 10px; font-family: cursive; font-size: 14pt;">
+        <b>Войти в личный кабинет</b> </span>
+        <form id="login_button" action="{% url 'authentication' %}" method="POST" >
+            {{ logging }}
+            {% csrf_token %}
+        <button form="login_button" type="submit" class="common_button"> Войти </button>
+        {% if messages %}
+            {% for message in messages %}
+                <br><p class="{{ message.tags }}" >{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        </form>
+    {% endblock login_form %}</div>
+
+    <div class="content">{% block content %} ТЕСТ {% endblock content %}</div>
+</body>
+</html>

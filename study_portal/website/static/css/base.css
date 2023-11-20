@@ -1,0 +1,12 @@
+/* styles.css */
+
+body {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  height: 100vh;
+  background: url('../images/background.png') center/cover no-repeat;
+  background-size: cover;
+}
+
+
