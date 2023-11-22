@@ -9,10 +9,10 @@
 
 <body>
     <h1 class="header">{% block header %}{% endblock header %}</h1>
-    <div class="log_box">{% block login_form %}
-        <span style="margin-bottom: 10px; font-family: cursive; font-size: 14pt;">
+    <div class="login_box">{% block login_form %}
+        <span style="margin-bottom: 10px; font-family: cursive; font-size: 14pt; text-align: center;">
         <b>Войти в личный кабинет</b> </span>
-        <form id="login_button" action="{% url 'authentication' %}" method="POST" >
+        <form id="login_button" action="{% url 'index' %}" method="POST" >
             {{ logging }}
             {% csrf_token %}
         <button form="login_button" type="submit" class="common_button"> Войти </button>
@@ -23,6 +23,14 @@
         {% endif %}
         </form>
     {% endblock login_form %}</div>
+
+    <div class="logout_box">{% block logout_form %}
+        <span style="margin-bottom: 10px; font-family: cursive; font-size: 14pt; text-align: center;">
+        <b>Выйти из аккаунта<br>Сменить пользователя</b> </span>
+        <form id="logout_button" action="{% url 'index' %}" method="GET">
+            <button form="logout_button" type="submit" class="common_button"> Выйти</button>
+        </form>
+    {% endblock logout_form %}</div>
 
     <div class="content">{% block content %} ТЕСТ {% endblock content %}</div>
 </body>

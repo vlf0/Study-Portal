@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,6 +68,8 @@ ROOT_URLCONF = 'study_portal.urls'
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/profile/'
 
+# LOGIN_URL = ''
+
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 
 TEMPLATES = [
@@ -88,7 +91,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'study_portal.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

@@ -4,6 +4,7 @@
 
 {% block header %} Добро пожаловать, {{ user_name }} {% endblock header %}
 {% block login_form %}{% endblock login_form %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'css/logout.css' %}">{% endblock style %}
 {% block content %}
   <ul>
     <li>Статьи</li>
