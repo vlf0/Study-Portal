@@ -1,0 +1,104 @@
+/* styles.css */
+
+body {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  height: 100vh;
+  background: url('/static/website/images/background.png') center/cover no-repeat;
+  background-size: cover;
+}
+
+/* Login container */
+.login_box {
+  background-color: rgba(64, 63, 11, 0.8);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 12px 17px 10px 0px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login fields (user, password) */
+.log_field {
+  outline: none;
+  margin: 5px;
+  border-radius: 9px;
+}
+
+input[type=text]:focus {
+  color: black;
+  border: 2px solid #555;
+}
+
+input[type=password]:focus {
+  color: black;
+  border: 2px solid #555;
+}
+
+/* Labels for login fields */
+label {
+  font-variant: all-petite-caps;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+/* Button SUBMIT for login-from */
+.common_button {
+  font-size: small;
+  border: 1px solid darkgrey;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, sans-serif;
+  background-color: rgba(128, 128, 0, 0.9);
+  font-variant: all-petite-caps;
+  font-weight: bold;
+  margin: 2px;
+  border-radius: 12px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 5px;
+}
+
+.error {
+  color: orangered;
+}
+
+#login_button {
+  display: contents;
+}
+
+.common_button:hover {
+    background-color: rgba(128, 128, 0, 0.6);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.reg_link {
+  font-size: small;
+  border: 1px solid darkgrey;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, sans-serif;
+  background-color: rgba(128, 128, 0, 0.9);
+  font-variant: all-petite-caps;
+  font-weight: bold;
+  margin: 2px;
+  border-radius: 12px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 5px;
+}
+
+.reg_link:hover {
+    background-color: rgba(128, 128, 0, 0.6);
+    transition: border-color 0.2s ease-in-out;
+}

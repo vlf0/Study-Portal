@@ -8,3 +8,13 @@ class Logging(forms.Form):
     password = forms.CharField(label='Пароль', label_suffix='',  # min_length=6, max_length=16,
                                widget=forms.PasswordInput(attrs={'class': 'log_field'}))
 
+
+class Registration(forms.Form):
+    """ Form for registration a new users. """
+    email = forms.EmailField(label='email', label_suffix='',
+                             widget=forms.TextInput(attrs={'class': 'log_field'}))
+    name = forms.CharField(label='Логин', min_length=4, max_length=16, label_suffix='',
+                           widget=forms.TextInput(attrs={'class': 'log_field'}))
+    password = forms.CharField(label='Пароль', label_suffix='',  # min_length=6, max_length=16,
+                               widget=forms.PasswordInput(attrs={'class': 'log_field'}))
+

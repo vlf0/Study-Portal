@@ -5,12 +5,12 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   height: 100vh;
-  background: url('../images/background.png') center/cover no-repeat;
+  background: url('/static/website/images/background.png') center/cover no-repeat;
   background-size: cover;
 }
 
 /* Login container */
-.login_box {
+.logout_box {
   background-color: rgba(64, 63, 11, 0.8);
   padding: 15px;
   border-radius: 12px;
@@ -24,29 +24,6 @@ body {
   justify-content: center;
 }
 
-/* Login fields (user, password) */
-.log_field {
-  outline: none;
-  margin: 5px;
-  border-radius: 9px;
-}
-
-input[type=text]:focus {
-  color: black;
-  border: 2px solid #555;
-}
-
-input[type=password]:focus {
-  color: black;
-  border: 2px solid #555;
-}
-
-/* Labels for login fields */
-label {
-  font-variant: all-petite-caps;
-}
-
-/* Button SUBMIT for login-from */
 .common_button {
   background-color: rgba(128, 128, 0, 0.9);
   font-variant: all-petite-caps;
@@ -58,14 +35,6 @@ label {
   padding-top: 3px;
   padding-bottom: 3px;
   margin-top: 5px;
-}
-
-.error {
-  color: orangered;
-}
-
-#login_button {
-  display: contents;
 }
 
 .common_button:hover {

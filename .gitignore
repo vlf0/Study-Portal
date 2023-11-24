@@ -2,7 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-test.*
+example*.py
+example_test*.py
+test*.py
 config_data.txt
 settings_prod.py
 # all python files in the root dir
