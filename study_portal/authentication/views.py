@@ -32,12 +32,21 @@ def profile(request, **kwargs):
         logout(request)
         return redirect('index')
     if kwargs:
-        data = {'username': kwargs}
+        data = {'username': kwargs['username']}
     return render(request, 'registration/login.html', data)
 
 
 def new_user(request):
-    print('new_user', request.method)
+    if request.method == "POST":
+        instance = {
+                'email': request.POST.get('email'),
+                'name': request.POST.get('name'),
+                'password': request.POST.get('password')
+                }
+        user = User.objects.create_user(instance['name'], instance['email'], instance['password'])
+        user.save()
+        # Need to change to another redirecting
+        # return redirect('profile', username=instance['name'])
     return render(request, 'registration/registration.html', {'registration': Registration()})
 
 

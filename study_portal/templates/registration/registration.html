@@ -1,34 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>TEST</h1>
-    {{ registration }}
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('#id_name').on('blur', function(){
-            var username = $(this).val();
-
-            $.ajax({
-                    url: '/check_username/',
-                    data: {'username': username},
-                    type: 'GET',
-                    dataType: 'json',
-                    headers: {'X-CSRFToken': '{{ csrf_token }}'},  // Include CSRF token
-                success: function(data){
-                    if(data.is_taken){
-                        alert('This username is already taken. Please choose another one.');
-                        // You can also update the UI to show an error message
-                    }
-                }
-            });
-        });
-    });
-</script>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication/css/login.css' %}">
+{% endblock style %}{% block content %}
+    Укажите данные для создания аккаунта
+{% endblock content %}
+{% block login_form %}{% endblock login_form %}
+{% block logout_form %}{% endblock logout_form %}

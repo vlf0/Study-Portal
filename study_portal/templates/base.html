@@ -3,35 +3,56 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <title>{% block title %} Default {% endblock title %}</title>
-    {% block style %}<link rel="stylesheet" type="text/css" href="{% static 'website/css/base.css' %}">{% endblock style %}
+        <title>{% block title %} Default {% endblock title %}</title>
+    {% block ajax_request %}
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="{% static 'authentication/js/ajax_username_check.js' %}"></script>
+    {% endblock ajax_request %}
+    {% block style %}
+        <link rel="stylesheet" type="text/css" href="{% static 'website/css/base.css' %}">
+    {% endblock style %}
 </head>
 
 <body>
-    <h1 class="header">{% block header %}{% endblock header %}</h1>
-    <div class="login_box">{% block login_form %}
+    {% block header %}
+        <h1 class="header"></h1>
+    {% endblock header %}
+    {% block registration %}
+        <div class="reg_box">
+            <form id="registration" action="{% url 'add_user' %}" method="POST">
+                {{ registration }}
+                {% csrf_token %}
+                <button form="registration" type="submit" class="common_button">Создать аккаунт</button>
+            </form>
+        </div>
+    {% endblock registration %}
+    {% block login_form %}
+        <div class="login_box">
+            <form id="login" action="{% url 'index' %}" method="POST" >
+                {{ logging }}
+                {% csrf_token %}
+            <button form="login" type="submit" class="common_button">ВХОД</button>
+            {% if messages %}
+                {% for message in messages %}
+                    <br><p class="{{ message.tags }}" >{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            </form>
+            <a class="reg_link" href="{% url 'new_user' %}">РЕГИСТРАЦИЯ</a>
+        </div>
+    {% endblock login_form %}
 
-        <form id="login_button" action="{% url 'index' %}" method="POST" >
-            {{ logging }}
-            {% csrf_token %}
-        <button form="login_button" type="submit" class="common_button">ВХОД</button>
-        {% if messages %}
-            {% for message in messages %}
-                <br><p class="{{ message.tags }}" >{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-        </form>
-        <a class="reg_link" href="{% url 'new_user' %}">РЕГИСТРАЦИЯ</a>
-    {% endblock login_form %}</div>
+    {% block logout_form %}
+        <div class="logout_box">
+            <span style="margin-bottom: 10px; font-family: cursive; font-size: 14pt; text-align: center;">
+            <b>Выйти из аккаунта<br>Сменить пользователя</b> </span>
+            <form id="logout" action="{% url 'logged_out' 'out' %}" method="POST">
+                {% csrf_token %}
+                <button form="logout" type="submit" class="common_button">Выйти</button>
+            </form>
+        </div>
+    {% endblock logout_form %}
 
-    <div class="logout_box">{% block logout_form %}
-        <span style="margin-bottom: 10px; font-family: cursive; font-size: 14pt; text-align: center;">
-        <b>Выйти из аккаунта<br>Сменить пользователя</b> </span>
-        <form id="logout_button" action="{% url 'logged_out' 'out' %}" method="POST">{% csrf_token %}
-            <button form="logout_button" type="submit" class="common_button">Выйти</button>
-        </form>
-    {% endblock logout_form %}</div>
-
-    <div class="content">{% block content %} ТЕСТ {% endblock content %}</div>
+{% block content %}<div class="content"> ТЕСТ </div>{% endblock content %}
 </body>
 </html>

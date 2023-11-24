@@ -2,9 +2,10 @@
 {% load static %}
 {% block title %} Profile {% endblock title %}
 
-{% block header %} Добро пожаловать, {{ user_name }} {% endblock header %}
+{% block header %} Добро пожаловать, {{ username }} {% endblock header %}
 {% block login_form %}{% endblock login_form %}
-{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'authentication/css/logout.css' %}">{% endblock style %}
+{% block registration %}{% endblock registration %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'authentication/css/login.css' %}">{% endblock style %}
 {% block content %}
   <ul>
     <li>Статьи</li>
