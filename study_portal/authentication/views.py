@@ -2,15 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from .forms import Logging, Registration
-import time
 
-# Time tracking
-# t1 = time.time()
-# t2 = time.time() - t1
-# print(t2)
+User = get_user_model()
 
 
 # This function works more than 0.5 s. Will attempt another build.
